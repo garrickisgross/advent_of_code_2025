@@ -4,20 +4,21 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strings"
 )
 
-func ReadInput(file string) ([]string, error) {
-	stuff, err := os.Open(file)
+func ReadInputLines(path string) ([]string, error) {
+	content, err := os.Open(path)
 	if err != nil {
-		fmt.Print("Error opening file \n")
+		fmt.Print("Error opening file")
 		return nil, err
 	}
 
-	defer stuff.Close()
+	defer content.Close()
 
 	var result []string
 
-	scanner := bufio.NewScanner(stuff)
+	scanner := bufio.NewScanner(content)
 
 	for scanner.Scan() {
 		result = append(result, scanner.Text())
@@ -26,10 +27,15 @@ func ReadInput(file string) ([]string, error) {
 	return result, scanner.Err()
 }
 
-func Abs(x int) int {
-	if x < 0 {
-		x = x * -1
+func ReadInputDelimit(path string, delim string) ([]string, error) {
+	content, err := os.ReadFile(path)
+	if err != nil {
+		fmt.Println("Error opening file")
+		return nil, err
 	}
 
-	return x
+	result := strings.Split(string(content), delim)
+
+	return result, nil
+
 }

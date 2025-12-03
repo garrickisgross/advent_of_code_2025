@@ -73,7 +73,7 @@ func processRotation_2(rot string, ctx *state) error {
 
 func part1() {
 	ctx := state{curr: 50, times_hit_zero: 0}
-	rots, err := util.ReadInput("input.txt")
+	rots, err := util.ReadInputLines("input.txt")
 	if err != nil {
 		fmt.Printf("Couldn't read input.txt: %d\n", err)
 		return
@@ -91,7 +91,7 @@ func part1() {
 func part2() {
 	ctx := state{curr: 50, times_hit_zero: 0}
 
-	rots, err := util.ReadInput("input.txt")
+	rots, err := util.ReadInputLines("input.txt")
 	if err != nil {
 		fmt.Printf("Couldn't read input.txt: %d\n", err)
 	}

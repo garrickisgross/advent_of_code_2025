@@ -20,5 +20,15 @@ I built a simple state machine to tackle this problem with. We build a struct th
 
 A modification of the first approach was needed, instead of checking the end, we had to increment if it hits 0 **at all**. Floor div solved the overall times it returned back to the same place, thus hitting 0 each time, then we loop through the remainder, increment 1 by 1. if it == 0 at any time throughout, then inc the counter. 
 
-### Notes
-Was kind of a rough start, need to pay more attention to the specifics moving forward / start thinking of edge cases sooner. Just gotta get back in the groove. Overall it took an hour to come to a solution while implementing in a new language. 
+## Day 2 - Gift Shop
+
+### Overview
+
+We are given a range of product ID's that the elves got all mangled up. Each range gives it's **first id** and its **last id** seperated by a `-`. Invalid IDs are one where **any** sequence of digits are repeated twice [55, 6464, 123123, etc]. Find the invalid IDs for the given ranges and add them together. 
+
+#### Part 1
+
+Actually got this first try. I literally just took every int in the range, and converted it to a string, split the string in two halfs and compared them. I thought surely there would be an edge case. But it was the correct answer..
+
+#### Part 2
+For this solution, I ended up iterating through the string and appending the rune to the current sequence, if at any point the sequence repeated for the len(str)/len(seq) times **and** the string != to the sequence. Then we return true and add it to the list to add up. 
