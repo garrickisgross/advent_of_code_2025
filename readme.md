@@ -35,10 +35,19 @@ For this solution, I ended up iterating through the string and appending the run
 ### Overview
 We are given a list of integers that represent battery bank joltage ratings. In part 1 we can switch two on, and concatenate the values left to right 12345 we can make 23, 24, 25 etc.. Part ones task is to find the largest possible voltage each bank can produce and then sum them up for the answer. Part two is the same, but for 12 digits.. 
 
-
-
 #### Part 1
 I'm terrible at combinitorics, but for this part specifically, I can get through without.. What I ended up doing, is converting each line to an int array, found the first max for the 10's digit, then found the second max for the 1's digit, this guaruntees the correct solution.. unless you forget to omit the last battery in the first max calc.. which I definitely didn't do with test input. 
 
 #### Part 2
 This one **sucked**. At first I tried an implementation of the Choice function (https://en.wikipedia.org/wiki/Combination), but while it significantly sped up part 1, and solved the sample problem on part 2, it froze my computer upon trying to execute on part 2. Threw that out the window and then implemented a greedy sliding window algorithm that scans from left to right in a window that is `k - remaining` long, chooses the max, and then loops until all versions are compared. We could only implement this i believe because the **order is preserved** from left to right. so we can assume that the next max value is to the right of the 1st max value.  
+
+## Day 4 - Printing Department
+
+## Overview
+We are given a grid and rolls of paper are identified by an "@". In Part 1, the goal is to count the number of rolls that can be removed, identified if they have fewer than 4 other rolls in its 8 adjacent spaces. Part 2, if we remove those rolls, how many can we remove in total if done until we can't anymore. 
+
+#### Part 1
+EZPZ. grab the input as a grid, loop through the 2d grid, define a canAccess function that looks at every adjacent square and adds rolls up, if less than four, increase the iterator. First try. 
+
+#### Part 2
+EZIERPZIER. take the first solution and when you can access one, remove it from the grid and replace with "x" (or "." doesn't matter). If you find one, set done to false, need to rescan the grid, loop until done. 
