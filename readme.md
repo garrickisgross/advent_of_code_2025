@@ -1,14 +1,10 @@
-# Advent of Code 2025
+# Advent of Code 2025 (https://adventofcode.com/2025)
 
 ## Day 1 - Secret Entrance
 
 ### Overview
 
-You arrive at the secret entrance to the North Pole base ready to start decorating. Unfortunately, the password seems to have been changed, so you can't get in. A document taped to the wall helpfully explains:
-
-The safe has a dial with only an arrow on it; around the dial are the numbers 0 through 99 in order. As you turn the dial, it makes a small click noise as it reaches each number.
-
-The attached document (your puzzle input) contains a sequence of rotations, one per line, which tell you how to open the safe. A rotation starts with an L or R which indicates whether the rotation should be to the left (toward lower numbers) or to the right (toward higher numbers). Then, the rotation has a distance value which indicates how many clicks the dial should be rotated in that direction.
+We are given a list of rotations, and a dial numbered from 0 - 99 that starts at 50. Rotating left, decreases, Rotating right, increases. The solution involves counting the number of times 0 is seen. In part 1, we need to count how many times the dial lands on 0 **after** a rotation. In part 2, we need to count how many times the dial **sees** 0, whether during a rotation or ending on 0. 
 
 #### Part 1 
 
