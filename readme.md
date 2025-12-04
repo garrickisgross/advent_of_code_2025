@@ -32,3 +32,17 @@ Actually got this first try. I literally just took every int in the range, and c
 
 #### Part 2
 For this solution, I ended up iterating through the string and appending the rune to the current sequence, if at any point the sequence repeated for the len(str)/len(seq) times **and** the string != to the sequence. Then we return true and add it to the list to add up. 
+
+
+## Day 3 - Lobby
+
+### Overview
+We are given a list of integers that represent battery bank joltage ratings. In part 1 we can switch two on, and concatenate the values left to right 12345 we can make 23, 24, 25 etc.. Part ones task is to find the largest possible voltage each bank can produce and then sum them up for the answer. Part two is the same, but for 12 digits.. 
+
+
+
+#### Part 1
+I'm terrible at combinitorics, but for this part specifically, I can get through without.. What I ended up doing, is converting each line to an int array, found the first max for the 10's digit, then found the second max for the 1's digit, this guaruntees the correct solution.. unless you forget to omit the last battery in the first max calc.. which I definitely didn't do with test input. 
+
+#### Part 2
+This one **sucked**. I ended up realizing that my computer literally couldn't brute force it even if I tried. Even an implementation of the Choice function (https://en.wikipedia.org/wiki/Combination), but while it significantly sped up part 1, and solved the sample problem on part 2, it froze my computer upon trying to execute on part 2. Threw that out the windo and then implemented a greedy sliding window algorithm that scans from left to right in a windo that is `k - remaining` long, chooses the max, and then loops until all versions are compared. We could only implement this i believe because the **order is preserved** from left to right. so we can assume that the next max value is to the right of the 1st max value.  
