@@ -43,7 +43,7 @@ This one **sucked**. At first I tried an implementation of the Choice function (
 
 ## Day 4 - Printing Department
 
-## Overview
+### Overview
 We are given a grid and rolls of paper are identified by an "@". In Part 1, the goal is to count the number of rolls that can be removed, identified if they have fewer than 4 other rolls in its 8 adjacent spaces. Part 2, if we remove those rolls, how many can we remove in total if done until we can't anymore. 
 
 #### Part 1
@@ -51,3 +51,14 @@ EZPZ. grab the input as a grid, loop through the 2d grid, define a canAccess fun
 
 #### Part 2
 EZIERPZIER. take the first solution and when you can access one, remove it from the grid and replace with "x" (or "." doesn't matter). If you find one, set done to false, need to rescan the grid, loop until done. 
+
+## Day 5 - Cafeteria
+
+### Overview
+We are given a list of ranges encoding a **min** and a **max** along with some numbers that may or may not fit into those ranges. Part 1, the goal is to count how many of the numbers fall in the ranges. Part two asks to identify how many numbers fit in the ranges overall. Ranges may overlap.
+
+#### Part 1 
+This one was fairly straightforward, create a 2d array of ranges with the min and max, for each number, check if it fits in any of the ranges, if yes, then increment result. 
+
+#### Part 2
+For me, the best way forward was to merge all the ranges. then for each range, take the max - min + 1, and increment result by that much. I struggled quite a bit with the merging, ultimately I was using a flag to show when I edited the result array and it was in the wrong spot, which led to a ton of debugging. everytime I updated the array in the result, I recursively called the merge function to correct any overlap in the new ranges. This worked fairly well, although I feel like there is a more optimal solution for both parts. 
