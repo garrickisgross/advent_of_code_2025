@@ -40,11 +40,11 @@ func ReadInputDelimit(path string, delim string) ([]string, error) {
 
 }
 
-func ReadInput2dArray(path string) [][]string {
+func ReadInput2dArray(path string, delim string) [][]string {
 	lines, _ := ReadInputLines(path)
 	var result [][]string
 	for _, v := range lines {
-		split := strings.Split(v, "")
+		split := strings.Split(v, delim)
 		result = append(result, split)
 	}
 

@@ -50,7 +50,7 @@ func canAccess(y int, x int, grid [][]string) bool {
 }
 
 func part1() {
-	input_grid := util.ReadInput2dArray("input.txt")
+	input_grid := util.ReadInput2dArray("input.txt", "")
 	acc := 0
 	for i := 0; i < len(input_grid); i++ {
 		for j := 0; j < len(input_grid[0]); j++ {
@@ -64,7 +64,7 @@ func part1() {
 }
 
 func part2() {
-	input_grid := util.ReadInput2dArray("input.txt")
+	input_grid := util.ReadInput2dArray("input.txt", "")
 	acc := 0
 	done := false
 

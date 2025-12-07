@@ -62,3 +62,14 @@ This one was fairly straightforward, create a 2d array of ranges with the min an
 
 #### Part 2
 For me, the best way forward was to merge all the ranges. then for each range, take the max - min + 1, and increment result by that much. I struggled quite a bit with the merging, ultimately I was using a flag to show when I edited the result array and it was in the wrong spot, which led to a ton of debugging. everytime I updated the array in the result, I recursively called the merge function to correct any overlap in the new ranges. This worked fairly well, although I feel like there is a more optimal solution for both parts. 
+
+## Day 6 - Trash Compactor
+
+### Overview
+We are given a list of numbers with the final row being operations. Part on asks us to use the operations in vertical order, part 2 in columns with the most significant digit starting at the top. 
+
+#### Part 1
+I really just loaded the numbers in, kept them in a 2d array, and then used the index of the operations. Happened fairly quickly. 
+
+#### Part 2
+The only difference between this one and part one was the way we prepared the initial 2d array, it took me a little to reason through the construction, but once we got there, the solution was fairly straightforward. 
