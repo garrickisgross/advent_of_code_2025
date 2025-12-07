@@ -73,3 +73,16 @@ I really just loaded the numbers in, kept them in a 2d array, and then used the 
 
 #### Part 2
 The only difference between this one and part one was the way we prepared the initial 2d array, it took me a little to reason through the construction, but once we got there, the solution was fairly straightforward. 
+
+## Day 7 - Laboritories
+
+### Overview
+We are given a grid of string characters, S denotes the starting pos of the tachyon beam. The beam moves downwards, and when it hits a splitter "^", it splits into two beams on the left and the right and ceases to move downwards. Part 1 asks us to count how many time the beam splits. Part 2, annoyingly, involves counting all of the paths the beam can take if it only chooses one each time it hits a splitter. 
+
+#### Part 1
+I did okay with this one. I legitimately simulated it in code to get the answer, was fairly straightforward.. Part 2 however...
+
+#### Part 2
+Had to lean on the LLM quite a bit here. But essentially it uses a row by row dynamic programming approach and uses a map to hold the number of active timelines at the current row. 
+
+- [TODO] practice dynamic programming problems to get more comfortable with this type of thing. 
