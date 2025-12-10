@@ -86,3 +86,17 @@ I did okay with this one. I legitimately simulated it in code to get the answer,
 Had to lean on the LLM quite a bit here. But essentially it uses a row by row dynamic programming approach and uses a map to hold the number of active timelines at the current row. 
 
 - [TODO] practice dynamic programming problems to get more comfortable with this type of thing. 
+
+## Day 8 - Playground
+
+### Overview
+
+We are given a set of coordinates in 3d space. the task essentially is to find the pairs with the shortest distances and connect them together, and keep track of the circuits that form. Part 1 has to do with making a certain number of connections, and then measuring the 3 biggest circuits. Part 2 wants us to connect until there is just one connection left and then look at those two points. 
+
+#### Part 1
+Both solutions had similar solves. for the pairs, we loop through all possible pairs, calculate distance and store in a slice of pairs that contain the index of the boxes and then the distance between that pair, we then use a quicksort implementation to sort those pairs lowest -> highest distance. 
+
+This is where I started struggling, I needed a way to keep track of circuits. I chose to do this through a find union pattern. We define a parent that represent the root to the circuit mapped to the same index of boxes. when we match one up, we update its index in the parent to the root index of the one that we merged it with and update its size. We create a find function and a union function, the find function will find the root. and the union function will merge the circuits if needed. We then go through all the roots where the index didn't change, and map those sizes to a slice. grab the biggest three and multiply together. 
+
+#### Part 2
+For part two, its pretty much the same solution as part one, except you want to keep pairing boxes until there is one left. our union function returns a bool that lets us know if it made a merge or not, so using that, its pretty straightforward and mostly copy/paste. 
